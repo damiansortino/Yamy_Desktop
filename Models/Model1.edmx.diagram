@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a810b0869f224d6e8edf8de9ed5cbc06" Name="Diagram1">
+        <EntityTypeShape EntityType="baselaymarModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetRoleClaims" Width="1.5" PointX="11" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetRoles" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetUserClaims" Width="1.5" PointX="13.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetUserLogins" Width="1.5" PointX="13.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetUsers" Width="1.5" PointX="11" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.AspNetUserTokens" Width="1.5" PointX="13.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.caja" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.comprobante" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.detalleFactura" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.estadoComprobante" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.medioPago" Width="1.5" PointX="5.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.movimientoCaja" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.movimientoStock" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.personaJuridica" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.producto" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.stock" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.sucursal" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.tipoComprobante" Width="1.5" PointX="0.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.tipoMovimientoCaja" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.tipoMovimientoStock" Width="1.5" PointX="6" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.userEntradas" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="baselaymarModel.userSucursal" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <AssociationConnector Association="baselaymarModel.FK_AspNetRoleClaims_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_AspNetUserClaims_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_AspNetUserLogins_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_AspNetUserTokens_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_caja_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoCaja_caja_CajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_comprobante_personaJuridica_PersonaJuridicaId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_comprobante_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_comprobante_tipoComprobante_TipoComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_detalleFactura_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoCaja_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoStock_comprobante_ComprobanteId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_detalleFactura_producto_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoStock_stock_StockId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_producto_personaJuridica_ProveedorId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_stock_producto_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_stock_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_userEntradas_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.FK_userSucursal_sucursal_SucursalId" ManuallyRouted="false" />
+        <AssociationConnector Association="baselaymarModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

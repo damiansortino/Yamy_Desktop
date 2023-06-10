@@ -1,0 +1,1756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="baselaymarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoleClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedName" Type="nvarchar" MaxLength="256" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserTokens">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="caja">
+          <Key>
+            <PropertyRef Name="CajaId" />
+          </Key>
+          <Property Name="CajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaCaja" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaCierreCaja" Type="datetime2" Precision="7" />
+          <Property Name="montoCaja" Type="float" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comprobante">
+          <Key>
+            <PropertyRef Name="ComprobanteId" />
+          </Key>
+          <Property Name="ComprobanteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar(max)" />
+          <Property Name="importe" Type="float" Nullable="false" />
+          <Property Name="bonificacion" Type="float" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="PersonaJuridicaId" Type="int" Nullable="false" />
+          <Property Name="TipoComprobanteId" Type="int" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="efectivo" Type="float" Nullable="false" />
+          <Property Name="tarjeta" Type="float" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Tarjeta1" Type="float" />
+          <Property Name="Tarjeta2" Type="float" />
+          <Property Name="TarjDebito" Type="float" />
+          <Property Name="Transferencia" Type="float" />
+          <Property Name="GedNet" Type="float" />
+          <Property Name="Mercadopago" Type="float" />
+        </EntityType>
+        <EntityType Name="detalleFactura">
+          <Key>
+            <PropertyRef Name="DetalleFacturaId" />
+          </Key>
+          <Property Name="DetalleFacturaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="bonificacion" Type="float" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="cadenaBusquedaProducto" Type="nvarchar(max)" />
+          <Property Name="ComprobanteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estadoComprobante">
+          <Key>
+            <PropertyRef Name="EstadoComprobanteId" />
+          </Key>
+          <Property Name="EstadoComprobanteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEstadoComprobante" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="medioPago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tarjeta1" Type="float" Nullable="false" />
+          <Property Name="tarjeta2" Type="float" Nullable="false" />
+          <Property Name="tarjetadebito" Type="float" Nullable="false" />
+          <Property Name="transferenciabancaria" Type="float" Nullable="false" />
+          <Property Name="mercadopago" Type="float" Nullable="false" />
+          <Property Name="gednet" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="movimientoCaja">
+          <Key>
+            <PropertyRef Name="MovimientoCajaId" />
+          </Key>
+          <Property Name="MovimientoCajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="entra" Type="bit" Nullable="false" />
+          <Property Name="sale" Type="bit" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="importe" Type="float" Nullable="false" />
+          <Property Name="observaciones" Type="nvarchar(max)" />
+          <Property Name="tipoMovimientoCajaId" Type="int" Nullable="false" />
+          <Property Name="CajaId" Type="int" Nullable="false" />
+          <Property Name="ComprobanteId" Type="int" />
+        </EntityType>
+        <EntityType Name="movimientoStock">
+          <Key>
+            <PropertyRef Name="MovimientoStockId" />
+          </Key>
+          <Property Name="MovimientoStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="entra" Type="bit" Nullable="false" />
+          <Property Name="sale" Type="bit" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="StockId" Type="int" Nullable="false" />
+          <Property Name="ComprobanteId" Type="int" />
+          <Property Name="TipoMovimientoStockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personaJuridica">
+          <Key>
+            <PropertyRef Name="PersonaJuridicaId" />
+          </Key>
+          <Property Name="PersonaJuridicaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cuit" Type="nvarchar(max)" />
+          <Property Name="razonSocial" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="nombreFantasia" Type="nvarchar(max)" />
+          <Property Name="direccion1" Type="nvarchar(max)" />
+          <Property Name="direccion2" Type="nvarchar(max)" />
+          <Property Name="numeroTelefono1" Type="nvarchar(max)" />
+          <Property Name="numeroTelefono2" Type="nvarchar(max)" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="Discriminator" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClienteId" Type="nvarchar(max)" />
+          <Property Name="ProveedorId" Type="nvarchar(max)" />
+          <Property Name="porcentajeRentabilidad" Type="float" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="precioUnitario" Type="float" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+          <Property Name="porcentajeRentabilidad" Type="float" Nullable="false" />
+          <Property Name="talle" Type="nvarchar(max)" />
+          <Property Name="color" Type="nvarchar(max)" />
+          <Property Name="marca" Type="nvarchar(max)" />
+          <Property Name="ProveedorId" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sucursal">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+          </Key>
+          <Property Name="SucursalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreSucursal" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="tipoComprobante">
+          <Key>
+            <PropertyRef Name="TipoComprobanteId" />
+          </Key>
+          <Property Name="TipoComprobanteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipoComprobante" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tipoMovimientoCaja">
+          <Key>
+            <PropertyRef Name="TipoMovimientoCajaId" />
+          </Key>
+          <Property Name="TipoMovimientoCajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipoMovimientoCaja" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tipoMovimientoStock">
+          <Key>
+            <PropertyRef Name="TipoMovimientoStockId" />
+          </Key>
+          <Property Name="TipoMovimientoStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipoMovimientoStock" Type="nvarchar(max)" />
+          <Property Name="fechaAlta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="userEntradas">
+          <Key>
+            <PropertyRef Name="UserEntradasId" />
+          </Key>
+          <Property Name="UserEntradasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar(max)" />
+          <Property Name="fechaIngreso" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userSucursal">
+          <Key>
+            <PropertyRef Name="UserSucursalId" />
+          </Key>
+          <Property Name="UserSucursalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar(max)" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRoleClaims" Type="Self.AspNetRoleClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserTokens_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserTokens" Type="Self.AspNetUserTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserTokens">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caja_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="caja" Type="Self.caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="caja">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_personaJuridica_PersonaJuridicaId">
+          <End Role="personaJuridica" Type="Self.personaJuridica" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personaJuridica">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_tipoComprobante_TipoComprobanteId">
+          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoComprobante">
+              <PropertyRef Name="TipoComprobanteId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="TipoComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleFactura_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="1" />
+          <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="detalleFactura">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleFactura_producto_ProductoId">
+          <End Role="producto" Type="Self.producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="detalleFactura">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_caja_CajaId">
+          <End Role="caja" Type="Self.caja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
+          <End Role="tipoMovimientoCaja" Type="Self.tipoMovimientoCaja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoMovimientoCaja">
+              <PropertyRef Name="TipoMovimientoCajaId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="tipoMovimientoCajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_stock_StockId">
+          <End Role="stock" Type="Self.stock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stock">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId">
+          <End Role="tipoMovimientoStock" Type="Self.tipoMovimientoStock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoMovimientoStock">
+              <PropertyRef Name="TipoMovimientoStockId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="TipoMovimientoStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_personaJuridica_ProveedorId">
+          <End Role="personaJuridica" Type="Self.personaJuridica" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personaJuridica">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_producto_ProductoId">
+          <End Role="producto" Type="Self.producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userEntradas_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userEntradas" Type="Self.userEntradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="userEntradas">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userSucursal_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userSucursal" Type="Self.userSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="userSucursal">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="baselaymarModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="caja" EntityType="Self.caja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comprobante" EntityType="Self.comprobante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalleFactura" EntityType="Self.detalleFactura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoComprobante" EntityType="Self.estadoComprobante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medioPago" EntityType="Self.medioPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimientoCaja" EntityType="Self.movimientoCaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimientoStock" EntityType="Self.movimientoStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personaJuridica" EntityType="Self.personaJuridica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoComprobante" EntityType="Self.tipoComprobante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoMovimientoCaja" EntityType="Self.tipoMovimientoCaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoMovimientoStock" EntityType="Self.tipoMovimientoStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userEntradas" EntityType="Self.userEntradas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userSucursal" EntityType="Self.userSucursal" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles_RoleId" Association="Self.FK_AspNetUserRoles_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers_UserId" Association="Self.FK_AspNetUserRoles_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserTokens_AspNetUsers_UserId" Association="Self.FK_AspNetUserTokens_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserTokens" EntitySet="AspNetUserTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caja_sucursal_SucursalId" Association="Self.FK_caja_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="caja" EntitySet="caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_personaJuridica_PersonaJuridicaId" Association="Self.FK_comprobante_personaJuridica_PersonaJuridicaId">
+            <End Role="personaJuridica" EntitySet="personaJuridica" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_sucursal_SucursalId" Association="Self.FK_comprobante_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId" Association="Self.FK_comprobante_tipoComprobante_TipoComprobanteId">
+            <End Role="tipoComprobante" EntitySet="tipoComprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId" Association="Self.FK_detalleFactura_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="detalleFactura" EntitySet="detalleFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleFactura_producto_ProductoId" Association="Self.FK_detalleFactura_producto_ProductoId">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalleFactura" EntitySet="detalleFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_caja_CajaId" Association="Self.FK_movimientoCaja_caja_CajaId">
+            <End Role="caja" EntitySet="caja" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId" Association="Self.FK_movimientoCaja_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" Association="Self.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
+            <End Role="tipoMovimientoCaja" EntitySet="tipoMovimientoCaja" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId" Association="Self.FK_movimientoStock_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_stock_StockId" Association="Self.FK_movimientoStock_stock_StockId">
+            <End Role="stock" EntitySet="stock" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" Association="Self.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId">
+            <End Role="tipoMovimientoStock" EntitySet="tipoMovimientoStock" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_personaJuridica_ProveedorId" Association="Self.FK_producto_personaJuridica_ProveedorId">
+            <End Role="personaJuridica" EntitySet="personaJuridica" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_producto_ProductoId" Association="Self.FK_stock_producto_ProductoId">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_sucursal_SucursalId" Association="Self.FK_stock_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userEntradas_sucursal_SucursalId" Association="Self.FK_userEntradas_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="userEntradas" EntitySet="userEntradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userSucursal_sucursal_SucursalId" Association="Self.FK_userSucursal_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="userSucursal" EntitySet="userSucursal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="baselaymarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoleClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoleClaims" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetRoleClaims" Relationship="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetRoleClaims" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_AspNetUserClaims_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_AspNetUserLogins_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetUserTokens" Relationship="Self.FK_AspNetUserTokens_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserTokens" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetUserTokens">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUserTokens_AspNetUsers_UserId" FromRole="AspNetUserTokens" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="caja">
+          <Key>
+            <PropertyRef Name="CajaId" />
+          </Key>
+          <Property Name="CajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaCaja" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaCierreCaja" Type="DateTime" Precision="7" />
+          <Property Name="montoCaja" Type="Double" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sucursal" Relationship="Self.FK_caja_sucursal_SucursalId" FromRole="caja" ToRole="sucursal" />
+          <NavigationProperty Name="movimientoCaja" Relationship="Self.FK_movimientoCaja_caja_CajaId" FromRole="caja" ToRole="movimientoCaja" />
+        </EntityType>
+        <EntityType Name="comprobante">
+          <Key>
+            <PropertyRef Name="ComprobanteId" />
+          </Key>
+          <Property Name="ComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="importe" Type="Double" Nullable="false" />
+          <Property Name="bonificacion" Type="Double" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="PersonaJuridicaId" Type="Int32" Nullable="false" />
+          <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="efectivo" Type="Double" Nullable="false" />
+          <Property Name="tarjeta" Type="Double" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarjeta1" Type="Double" />
+          <Property Name="Tarjeta2" Type="Double" />
+          <Property Name="TarjDebito" Type="Double" />
+          <Property Name="Transferencia" Type="Double" />
+          <Property Name="GedNet" Type="Double" />
+          <Property Name="Mercadopago" Type="Double" />
+          <NavigationProperty Name="personaJuridica" Relationship="Self.FK_comprobante_personaJuridica_PersonaJuridicaId" FromRole="comprobante" ToRole="personaJuridica" />
+          <NavigationProperty Name="sucursal" Relationship="Self.FK_comprobante_sucursal_SucursalId" FromRole="comprobante" ToRole="sucursal" />
+          <NavigationProperty Name="tipoComprobante" Relationship="Self.FK_comprobante_tipoComprobante_TipoComprobanteId" FromRole="comprobante" ToRole="tipoComprobante" />
+          <NavigationProperty Name="detalleFactura" Relationship="Self.FK_detalleFactura_comprobante_ComprobanteId" FromRole="comprobante" ToRole="detalleFactura" />
+          <NavigationProperty Name="movimientoCaja" Relationship="Self.FK_movimientoCaja_comprobante_ComprobanteId" FromRole="comprobante" ToRole="movimientoCaja" />
+          <NavigationProperty Name="movimientoStock" Relationship="Self.FK_movimientoStock_comprobante_ComprobanteId" FromRole="comprobante" ToRole="movimientoStock" />
+        </EntityType>
+        <EntityType Name="detalleFactura">
+          <Key>
+            <PropertyRef Name="DetalleFacturaId" />
+          </Key>
+          <Property Name="DetalleFacturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="subtotal" Type="Double" Nullable="false" />
+          <Property Name="bonificacion" Type="Double" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="cadenaBusquedaProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComprobanteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_detalleFactura_comprobante_ComprobanteId" FromRole="detalleFactura" ToRole="comprobante" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_detalleFactura_producto_ProductoId" FromRole="detalleFactura" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="estadoComprobante">
+          <Key>
+            <PropertyRef Name="EstadoComprobanteId" />
+          </Key>
+          <Property Name="EstadoComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEstadoComprobante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="medioPago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tarjeta1" Type="Double" Nullable="false" />
+          <Property Name="tarjeta2" Type="Double" Nullable="false" />
+          <Property Name="tarjetadebito" Type="Double" Nullable="false" />
+          <Property Name="transferenciabancaria" Type="Double" Nullable="false" />
+          <Property Name="mercadopago" Type="Double" Nullable="false" />
+          <Property Name="gednet" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="movimientoCaja">
+          <Key>
+            <PropertyRef Name="MovimientoCajaId" />
+          </Key>
+          <Property Name="MovimientoCajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="entra" Type="Boolean" Nullable="false" />
+          <Property Name="sale" Type="Boolean" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="importe" Type="Double" Nullable="false" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tipoMovimientoCajaId" Type="Int32" Nullable="false" />
+          <Property Name="CajaId" Type="Int32" Nullable="false" />
+          <Property Name="ComprobanteId" Type="Int32" />
+          <NavigationProperty Name="caja" Relationship="Self.FK_movimientoCaja_caja_CajaId" FromRole="movimientoCaja" ToRole="caja" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_movimientoCaja_comprobante_ComprobanteId" FromRole="movimientoCaja" ToRole="comprobante" />
+          <NavigationProperty Name="tipoMovimientoCaja" Relationship="Self.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" FromRole="movimientoCaja" ToRole="tipoMovimientoCaja" />
+        </EntityType>
+        <EntityType Name="movimientoStock">
+          <Key>
+            <PropertyRef Name="MovimientoStockId" />
+          </Key>
+          <Property Name="MovimientoStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="entra" Type="Boolean" Nullable="false" />
+          <Property Name="sale" Type="Boolean" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StockId" Type="Int32" Nullable="false" />
+          <Property Name="ComprobanteId" Type="Int32" />
+          <Property Name="TipoMovimientoStockId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_movimientoStock_comprobante_ComprobanteId" FromRole="movimientoStock" ToRole="comprobante" />
+          <NavigationProperty Name="stock" Relationship="Self.FK_movimientoStock_stock_StockId" FromRole="movimientoStock" ToRole="stock" />
+          <NavigationProperty Name="tipoMovimientoStock" Relationship="Self.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" FromRole="movimientoStock" ToRole="tipoMovimientoStock" />
+        </EntityType>
+        <EntityType Name="personaJuridica">
+          <Key>
+            <PropertyRef Name="PersonaJuridicaId" />
+          </Key>
+          <Property Name="PersonaJuridicaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cuit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="razonSocial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreFantasia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="direccion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="direccion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="numeroTelefono1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="numeroTelefono2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="Discriminator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClienteId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProveedorId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="porcentajeRentabilidad" Type="Double" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_comprobante_personaJuridica_PersonaJuridicaId" FromRole="personaJuridica" ToRole="comprobante" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_producto_personaJuridica_ProveedorId" FromRole="personaJuridica" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="precioUnitario" Type="Double" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <Property Name="porcentajeRentabilidad" Type="Double" Nullable="false" />
+          <Property Name="talle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="marca" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProveedorId" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="detalleFactura" Relationship="Self.FK_detalleFactura_producto_ProductoId" FromRole="producto" ToRole="detalleFactura" />
+          <NavigationProperty Name="personaJuridica" Relationship="Self.FK_producto_personaJuridica_ProveedorId" FromRole="producto" ToRole="personaJuridica" />
+          <NavigationProperty Name="stock" Relationship="Self.FK_stock_producto_ProductoId" FromRole="producto" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="movimientoStock" Relationship="Self.FK_movimientoStock_stock_StockId" FromRole="stock" ToRole="movimientoStock" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_stock_producto_ProductoId" FromRole="stock" ToRole="producto" />
+          <NavigationProperty Name="sucursal" Relationship="Self.FK_stock_sucursal_SucursalId" FromRole="stock" ToRole="sucursal" />
+        </EntityType>
+        <EntityType Name="sucursal">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+          </Key>
+          <Property Name="SucursalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreSucursal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="caja" Relationship="Self.FK_caja_sucursal_SucursalId" FromRole="sucursal" ToRole="caja" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_comprobante_sucursal_SucursalId" FromRole="sucursal" ToRole="comprobante" />
+          <NavigationProperty Name="stock" Relationship="Self.FK_stock_sucursal_SucursalId" FromRole="sucursal" ToRole="stock" />
+          <NavigationProperty Name="userEntradas" Relationship="Self.FK_userEntradas_sucursal_SucursalId" FromRole="sucursal" ToRole="userEntradas" />
+          <NavigationProperty Name="userSucursal" Relationship="Self.FK_userSucursal_sucursal_SucursalId" FromRole="sucursal" ToRole="userSucursal" />
+        </EntityType>
+        <EntityType Name="tipoComprobante">
+          <Key>
+            <PropertyRef Name="TipoComprobanteId" />
+          </Key>
+          <Property Name="TipoComprobanteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoComprobante" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="comprobante" Relationship="Self.FK_comprobante_tipoComprobante_TipoComprobanteId" FromRole="tipoComprobante" ToRole="comprobante" />
+        </EntityType>
+        <EntityType Name="tipoMovimientoCaja">
+          <Key>
+            <PropertyRef Name="TipoMovimientoCajaId" />
+          </Key>
+          <Property Name="TipoMovimientoCajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoMovimientoCaja" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="movimientoCaja" Relationship="Self.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" FromRole="tipoMovimientoCaja" ToRole="movimientoCaja" />
+        </EntityType>
+        <EntityType Name="tipoMovimientoStock">
+          <Key>
+            <PropertyRef Name="TipoMovimientoStockId" />
+          </Key>
+          <Property Name="TipoMovimientoStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoMovimientoStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="movimientoStock" Relationship="Self.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" FromRole="tipoMovimientoStock" ToRole="movimientoStock" />
+        </EntityType>
+        <EntityType Name="userEntradas">
+          <Key>
+            <PropertyRef Name="UserEntradasId" />
+          </Key>
+          <Property Name="UserEntradasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sucursal" Relationship="Self.FK_userEntradas_sucursal_SucursalId" FromRole="userEntradas" ToRole="sucursal" />
+        </EntityType>
+        <EntityType Name="userSucursal">
+          <Key>
+            <PropertyRef Name="UserSucursalId" />
+          </Key>
+          <Property Name="UserSucursalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sucursal" Relationship="Self.FK_userSucursal_sucursal_SucursalId" FromRole="userSucursal" ToRole="sucursal" />
+        </EntityType>
+        <Association Name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRoleClaims" Type="Self.AspNetRoleClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserTokens_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserTokens" Type="Self.AspNetUserTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserTokens">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caja_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="caja" Type="Self.caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="caja">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_caja_CajaId">
+          <End Role="caja" Type="Self.caja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_personaJuridica_PersonaJuridicaId">
+          <End Role="personaJuridica" Type="Self.personaJuridica" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personaJuridica">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comprobante_tipoComprobante_TipoComprobanteId">
+          <End Role="tipoComprobante" Type="Self.tipoComprobante" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoComprobante">
+              <PropertyRef Name="TipoComprobanteId" />
+            </Principal>
+            <Dependent Role="comprobante">
+              <PropertyRef Name="TipoComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleFactura_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="1" />
+          <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="detalleFactura">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_comprobante_ComprobanteId">
+          <End Role="comprobante" Type="Self.comprobante" Multiplicity="0..1" />
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprobante">
+              <PropertyRef Name="ComprobanteId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="ComprobanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalleFactura_producto_ProductoId">
+          <End Role="producto" Type="Self.producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detalleFactura" Type="Self.detalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="detalleFactura">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
+          <End Role="tipoMovimientoCaja" Type="Self.tipoMovimientoCaja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoCaja" Type="Self.movimientoCaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoMovimientoCaja">
+              <PropertyRef Name="TipoMovimientoCajaId" />
+            </Principal>
+            <Dependent Role="movimientoCaja">
+              <PropertyRef Name="tipoMovimientoCajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_stock_StockId">
+          <End Role="stock" Type="Self.stock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stock">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId">
+          <End Role="tipoMovimientoStock" Type="Self.tipoMovimientoStock" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="movimientoStock" Type="Self.movimientoStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoMovimientoStock">
+              <PropertyRef Name="TipoMovimientoStockId" />
+            </Principal>
+            <Dependent Role="movimientoStock">
+              <PropertyRef Name="TipoMovimientoStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_personaJuridica_ProveedorId">
+          <End Role="personaJuridica" Type="Self.personaJuridica" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personaJuridica">
+              <PropertyRef Name="PersonaJuridicaId" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_producto_ProductoId">
+          <End Role="producto" Type="Self.producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_stock_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userEntradas_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userEntradas" Type="Self.userEntradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="userEntradas">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userSucursal_sucursal_SucursalId">
+          <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userSucursal" Type="Self.userSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sucursal">
+              <PropertyRef Name="SucursalId" />
+            </Principal>
+            <Dependent Role="userSucursal">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="baselaymarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" />
+          <EntitySet Name="caja" EntityType="Self.caja" />
+          <EntitySet Name="comprobante" EntityType="Self.comprobante" />
+          <EntitySet Name="detalleFactura" EntityType="Self.detalleFactura" />
+          <EntitySet Name="estadoComprobante" EntityType="Self.estadoComprobante" />
+          <EntitySet Name="medioPago" EntityType="Self.medioPago" />
+          <EntitySet Name="movimientoCaja" EntityType="Self.movimientoCaja" />
+          <EntitySet Name="movimientoStock" EntityType="Self.movimientoStock" />
+          <EntitySet Name="personaJuridica" EntityType="Self.personaJuridica" />
+          <EntitySet Name="producto" EntityType="Self.producto" />
+          <EntitySet Name="stock" EntityType="Self.stock" />
+          <EntitySet Name="sucursal" EntityType="Self.sucursal" />
+          <EntitySet Name="tipoComprobante" EntityType="Self.tipoComprobante" />
+          <EntitySet Name="tipoMovimientoCaja" EntityType="Self.tipoMovimientoCaja" />
+          <EntitySet Name="tipoMovimientoStock" EntityType="Self.tipoMovimientoStock" />
+          <EntitySet Name="userEntradas" EntityType="Self.userEntradas" />
+          <EntitySet Name="userSucursal" EntityType="Self.userSucursal" />
+          <AssociationSet Name="FK_AspNetRoleClaims_AspNetRoles_RoleId" Association="Self.FK_AspNetRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRoleClaims" EntitySet="AspNetRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers_UserId" Association="Self.FK_AspNetUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers_UserId" Association="Self.FK_AspNetUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserTokens_AspNetUsers_UserId" Association="Self.FK_AspNetUserTokens_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserTokens" EntitySet="AspNetUserTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caja_sucursal_SucursalId" Association="Self.FK_caja_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="caja" EntitySet="caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_caja_CajaId" Association="Self.FK_movimientoCaja_caja_CajaId">
+            <End Role="caja" EntitySet="caja" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_personaJuridica_PersonaJuridicaId" Association="Self.FK_comprobante_personaJuridica_PersonaJuridicaId">
+            <End Role="personaJuridica" EntitySet="personaJuridica" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_sucursal_SucursalId" Association="Self.FK_comprobante_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comprobante_tipoComprobante_TipoComprobanteId" Association="Self.FK_comprobante_tipoComprobante_TipoComprobanteId">
+            <End Role="tipoComprobante" EntitySet="tipoComprobante" />
+            <End Role="comprobante" EntitySet="comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleFactura_comprobante_ComprobanteId" Association="Self.FK_detalleFactura_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="detalleFactura" EntitySet="detalleFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_comprobante_ComprobanteId" Association="Self.FK_movimientoCaja_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_comprobante_ComprobanteId" Association="Self.FK_movimientoStock_comprobante_ComprobanteId">
+            <End Role="comprobante" EntitySet="comprobante" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalleFactura_producto_ProductoId" Association="Self.FK_detalleFactura_producto_ProductoId">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalleFactura" EntitySet="detalleFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId" Association="Self.FK_movimientoCaja_tipoMovimientoCaja_tipoMovimientoCajaId">
+            <End Role="tipoMovimientoCaja" EntitySet="tipoMovimientoCaja" />
+            <End Role="movimientoCaja" EntitySet="movimientoCaja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_stock_StockId" Association="Self.FK_movimientoStock_stock_StockId">
+            <End Role="stock" EntitySet="stock" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId" Association="Self.FK_movimientoStock_tipoMovimientoStock_TipoMovimientoStockId">
+            <End Role="tipoMovimientoStock" EntitySet="tipoMovimientoStock" />
+            <End Role="movimientoStock" EntitySet="movimientoStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_personaJuridica_ProveedorId" Association="Self.FK_producto_personaJuridica_ProveedorId">
+            <End Role="personaJuridica" EntitySet="personaJuridica" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_producto_ProductoId" Association="Self.FK_stock_producto_ProductoId">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stock_sucursal_SucursalId" Association="Self.FK_stock_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userEntradas_sucursal_SucursalId" Association="Self.FK_userEntradas_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="userEntradas" EntitySet="userEntradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userSucursal_sucursal_SucursalId" Association="Self.FK_userSucursal_sucursal_SucursalId">
+            <End Role="sucursal" EntitySet="sucursal" />
+            <End Role="userSucursal" EntitySet="userSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="baselaymarModelStoreContainer" CdmEntityContainer="baselaymarEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="baselaymarModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoleClaims">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetRoleClaims">
+              <MappingFragment StoreEntitySet="AspNetRoleClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="ProviderDisplayName" ColumnName="ProviderDisplayName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserTokens">
+            <EntityTypeMapping TypeName="baselaymarModel.AspNetUserTokens">
+              <MappingFragment StoreEntitySet="AspNetUserTokens">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caja">
+            <EntityTypeMapping TypeName="baselaymarModel.caja">
+              <MappingFragment StoreEntitySet="caja">
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="fechaCaja" ColumnName="fechaCaja" />
+                <ScalarProperty Name="fechaCierreCaja" ColumnName="fechaCierreCaja" />
+                <ScalarProperty Name="montoCaja" ColumnName="montoCaja" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comprobante">
+            <EntityTypeMapping TypeName="baselaymarModel.comprobante">
+              <MappingFragment StoreEntitySet="comprobante">
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="PersonaJuridicaId" ColumnName="PersonaJuridicaId" />
+                <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Tarjeta1" ColumnName="Tarjeta1" />
+                <ScalarProperty Name="Tarjeta2" ColumnName="Tarjeta2" />
+                <ScalarProperty Name="TarjDebito" ColumnName="TarjDebito" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="GedNet" ColumnName="GedNet" />
+                <ScalarProperty Name="Mercadopago" ColumnName="Mercadopago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalleFactura">
+            <EntityTypeMapping TypeName="baselaymarModel.detalleFactura">
+              <MappingFragment StoreEntitySet="detalleFactura">
+                <ScalarProperty Name="DetalleFacturaId" ColumnName="DetalleFacturaId" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="cadenaBusquedaProducto" ColumnName="cadenaBusquedaProducto" />
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoComprobante">
+            <EntityTypeMapping TypeName="baselaymarModel.estadoComprobante">
+              <MappingFragment StoreEntitySet="estadoComprobante">
+                <ScalarProperty Name="EstadoComprobanteId" ColumnName="EstadoComprobanteId" />
+                <ScalarProperty Name="nombreEstadoComprobante" ColumnName="nombreEstadoComprobante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medioPago">
+            <EntityTypeMapping TypeName="baselaymarModel.medioPago">
+              <MappingFragment StoreEntitySet="medioPago">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="tarjeta1" ColumnName="tarjeta1" />
+                <ScalarProperty Name="tarjeta2" ColumnName="tarjeta2" />
+                <ScalarProperty Name="tarjetadebito" ColumnName="tarjetadebito" />
+                <ScalarProperty Name="transferenciabancaria" ColumnName="transferenciabancaria" />
+                <ScalarProperty Name="mercadopago" ColumnName="mercadopago" />
+                <ScalarProperty Name="gednet" ColumnName="gednet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movimientoCaja">
+            <EntityTypeMapping TypeName="baselaymarModel.movimientoCaja">
+              <MappingFragment StoreEntitySet="movimientoCaja">
+                <ScalarProperty Name="MovimientoCajaId" ColumnName="MovimientoCajaId" />
+                <ScalarProperty Name="entra" ColumnName="entra" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="tipoMovimientoCajaId" ColumnName="tipoMovimientoCajaId" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movimientoStock">
+            <EntityTypeMapping TypeName="baselaymarModel.movimientoStock">
+              <MappingFragment StoreEntitySet="movimientoStock">
+                <ScalarProperty Name="MovimientoStockId" ColumnName="MovimientoStockId" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="entra" ColumnName="entra" />
+                <ScalarProperty Name="sale" ColumnName="sale" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+                <ScalarProperty Name="TipoMovimientoStockId" ColumnName="TipoMovimientoStockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personaJuridica">
+            <EntityTypeMapping TypeName="baselaymarModel.personaJuridica">
+              <MappingFragment StoreEntitySet="personaJuridica">
+                <ScalarProperty Name="PersonaJuridicaId" ColumnName="PersonaJuridicaId" />
+                <ScalarProperty Name="cuit" ColumnName="cuit" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="nombreFantasia" ColumnName="nombreFantasia" />
+                <ScalarProperty Name="direccion1" ColumnName="direccion1" />
+                <ScalarProperty Name="direccion2" ColumnName="direccion2" />
+                <ScalarProperty Name="numeroTelefono1" ColumnName="numeroTelefono1" />
+                <ScalarProperty Name="numeroTelefono2" ColumnName="numeroTelefono2" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="porcentajeRentabilidad" ColumnName="porcentajeRentabilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="baselaymarModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="porcentajeRentabilidad" ColumnName="porcentajeRentabilidad" />
+                <ScalarProperty Name="talle" ColumnName="talle" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock">
+            <EntityTypeMapping TypeName="baselaymarModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sucursal">
+            <EntityTypeMapping TypeName="baselaymarModel.sucursal">
+              <MappingFragment StoreEntitySet="sucursal">
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoComprobante">
+            <EntityTypeMapping TypeName="baselaymarModel.tipoComprobante">
+              <MappingFragment StoreEntitySet="tipoComprobante">
+                <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
+                <ScalarProperty Name="nombreTipoComprobante" ColumnName="nombreTipoComprobante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoMovimientoCaja">
+            <EntityTypeMapping TypeName="baselaymarModel.tipoMovimientoCaja">
+              <MappingFragment StoreEntitySet="tipoMovimientoCaja">
+                <ScalarProperty Name="TipoMovimientoCajaId" ColumnName="TipoMovimientoCajaId" />
+                <ScalarProperty Name="nombreTipoMovimientoCaja" ColumnName="nombreTipoMovimientoCaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoMovimientoStock">
+            <EntityTypeMapping TypeName="baselaymarModel.tipoMovimientoStock">
+              <MappingFragment StoreEntitySet="tipoMovimientoStock">
+                <ScalarProperty Name="TipoMovimientoStockId" ColumnName="TipoMovimientoStockId" />
+                <ScalarProperty Name="nombreTipoMovimientoStock" ColumnName="nombreTipoMovimientoStock" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userEntradas">
+            <EntityTypeMapping TypeName="baselaymarModel.userEntradas">
+              <MappingFragment StoreEntitySet="userEntradas">
+                <ScalarProperty Name="UserEntradasId" ColumnName="UserEntradasId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userSucursal">
+            <EntityTypeMapping TypeName="baselaymarModel.userSucursal">
+              <MappingFragment StoreEntitySet="userSucursal">
+                <ScalarProperty Name="UserSucursalId" ColumnName="UserSucursalId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="baselaymarModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
