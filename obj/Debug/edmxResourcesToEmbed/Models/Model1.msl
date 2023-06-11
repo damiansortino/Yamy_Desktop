@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="baselaymarModelStoreContainer" CdmEntityContainer="baselaymarEntities">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="baselaymarModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoleClaims">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetRoleClaims">
+        <MappingFragment StoreEntitySet="AspNetRoleClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+          <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="ProviderDisplayName" ColumnName="ProviderDisplayName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserTokens">
+      <EntityTypeMapping TypeName="baselaymarModel.AspNetUserTokens">
+        <MappingFragment StoreEntitySet="AspNetUserTokens">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="caja">
+      <EntityTypeMapping TypeName="baselaymarModel.caja">
+        <MappingFragment StoreEntitySet="caja">
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="fechaCaja" ColumnName="fechaCaja" />
+          <ScalarProperty Name="fechaCierreCaja" ColumnName="fechaCierreCaja" />
+          <ScalarProperty Name="montoCaja" ColumnName="montoCaja" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comprobante">
+      <EntityTypeMapping TypeName="baselaymarModel.comprobante">
+        <MappingFragment StoreEntitySet="comprobante">
+          <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="PersonaJuridicaId" ColumnName="PersonaJuridicaId" />
+          <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+          <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Tarjeta1" ColumnName="Tarjeta1" />
+          <ScalarProperty Name="Tarjeta2" ColumnName="Tarjeta2" />
+          <ScalarProperty Name="TarjDebito" ColumnName="TarjDebito" />
+          <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+          <ScalarProperty Name="GedNet" ColumnName="GedNet" />
+          <ScalarProperty Name="Mercadopago" ColumnName="Mercadopago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalleFactura">
+      <EntityTypeMapping TypeName="baselaymarModel.detalleFactura">
+        <MappingFragment StoreEntitySet="detalleFactura">
+          <ScalarProperty Name="DetalleFacturaId" ColumnName="DetalleFacturaId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="bonificacion" ColumnName="bonificacion" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="cadenaBusquedaProducto" ColumnName="cadenaBusquedaProducto" />
+          <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadoComprobante">
+      <EntityTypeMapping TypeName="baselaymarModel.estadoComprobante">
+        <MappingFragment StoreEntitySet="estadoComprobante">
+          <ScalarProperty Name="EstadoComprobanteId" ColumnName="EstadoComprobanteId" />
+          <ScalarProperty Name="nombreEstadoComprobante" ColumnName="nombreEstadoComprobante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medioPago">
+      <EntityTypeMapping TypeName="baselaymarModel.medioPago">
+        <MappingFragment StoreEntitySet="medioPago">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tarjeta1" ColumnName="tarjeta1" />
+          <ScalarProperty Name="tarjeta2" ColumnName="tarjeta2" />
+          <ScalarProperty Name="tarjetadebito" ColumnName="tarjetadebito" />
+          <ScalarProperty Name="transferenciabancaria" ColumnName="transferenciabancaria" />
+          <ScalarProperty Name="mercadopago" ColumnName="mercadopago" />
+          <ScalarProperty Name="gednet" ColumnName="gednet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimientoCaja">
+      <EntityTypeMapping TypeName="baselaymarModel.movimientoCaja">
+        <MappingFragment StoreEntitySet="movimientoCaja">
+          <ScalarProperty Name="MovimientoCajaId" ColumnName="MovimientoCajaId" />
+          <ScalarProperty Name="entra" ColumnName="entra" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="tipoMovimientoCajaId" ColumnName="tipoMovimientoCajaId" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimientoStock">
+      <EntityTypeMapping TypeName="baselaymarModel.movimientoStock">
+        <MappingFragment StoreEntitySet="movimientoStock">
+          <ScalarProperty Name="MovimientoStockId" ColumnName="MovimientoStockId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="entra" ColumnName="entra" />
+          <ScalarProperty Name="sale" ColumnName="sale" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="ComprobanteId" ColumnName="ComprobanteId" />
+          <ScalarProperty Name="TipoMovimientoStockId" ColumnName="TipoMovimientoStockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personaJuridica">
+      <EntityTypeMapping TypeName="baselaymarModel.personaJuridica">
+        <MappingFragment StoreEntitySet="personaJuridica">
+          <ScalarProperty Name="PersonaJuridicaId" ColumnName="PersonaJuridicaId" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="nombreFantasia" ColumnName="nombreFantasia" />
+          <ScalarProperty Name="direccion1" ColumnName="direccion1" />
+          <ScalarProperty Name="direccion2" ColumnName="direccion2" />
+          <ScalarProperty Name="numeroTelefono1" ColumnName="numeroTelefono1" />
+          <ScalarProperty Name="numeroTelefono2" ColumnName="numeroTelefono2" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+          <ScalarProperty Name="porcentajeRentabilidad" ColumnName="porcentajeRentabilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="baselaymarModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+          <ScalarProperty Name="porcentajeRentabilidad" ColumnName="porcentajeRentabilidad" />
+          <ScalarProperty Name="talle" ColumnName="talle" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock">
+      <EntityTypeMapping TypeName="baselaymarModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal">
+      <EntityTypeMapping TypeName="baselaymarModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoComprobante">
+      <EntityTypeMapping TypeName="baselaymarModel.tipoComprobante">
+        <MappingFragment StoreEntitySet="tipoComprobante">
+          <ScalarProperty Name="TipoComprobanteId" ColumnName="TipoComprobanteId" />
+          <ScalarProperty Name="nombreTipoComprobante" ColumnName="nombreTipoComprobante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoMovimientoCaja">
+      <EntityTypeMapping TypeName="baselaymarModel.tipoMovimientoCaja">
+        <MappingFragment StoreEntitySet="tipoMovimientoCaja">
+          <ScalarProperty Name="TipoMovimientoCajaId" ColumnName="TipoMovimientoCajaId" />
+          <ScalarProperty Name="nombreTipoMovimientoCaja" ColumnName="nombreTipoMovimientoCaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoMovimientoStock">
+      <EntityTypeMapping TypeName="baselaymarModel.tipoMovimientoStock">
+        <MappingFragment StoreEntitySet="tipoMovimientoStock">
+          <ScalarProperty Name="TipoMovimientoStockId" ColumnName="TipoMovimientoStockId" />
+          <ScalarProperty Name="nombreTipoMovimientoStock" ColumnName="nombreTipoMovimientoStock" />
+          <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+          <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userEntradas">
+      <EntityTypeMapping TypeName="baselaymarModel.userEntradas">
+        <MappingFragment StoreEntitySet="userEntradas">
+          <ScalarProperty Name="UserEntradasId" ColumnName="UserEntradasId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userSucursal">
+      <EntityTypeMapping TypeName="baselaymarModel.userSucursal">
+        <MappingFragment StoreEntitySet="userSucursal">
+          <ScalarProperty Name="UserSucursalId" ColumnName="UserSucursalId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="baselaymarModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

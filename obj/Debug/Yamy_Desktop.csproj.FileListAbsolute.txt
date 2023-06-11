@@ -1,0 +1,16 @@
+D:\GIT\Yamy_Desktop\bin\Debug\Yamy_Desktop.exe.config
+D:\GIT\Yamy_Desktop\bin\Debug\Yamy_Desktop.exe
+D:\GIT\Yamy_Desktop\bin\Debug\Yamy_Desktop.pdb
+D:\GIT\Yamy_Desktop\bin\Debug\EntityFramework.dll
+D:\GIT\Yamy_Desktop\bin\Debug\EntityFramework.SqlServer.dll
+D:\GIT\Yamy_Desktop\bin\Debug\EntityFramework.xml
+D:\GIT\Yamy_Desktop\bin\Debug\EntityFramework.SqlServer.xml
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.csproj.AssemblyReference.cache
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.Form1.resources
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.Properties.Resources.resources
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.csproj.GenerateResource.cache
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.csproj.CoreCompileInputs.cache
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.csproj.CopyComplete
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.exe
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.pdb
+D:\GIT\Yamy_Desktop\obj\Debug\Yamy_Desktop.Views.ProductoEditarForm.resources
