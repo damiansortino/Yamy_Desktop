@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Yamy_Desktop.Models;
@@ -106,37 +107,45 @@ namespace Yamy_Desktop
         {
             try
             {
-                string filtro = txtFiltro.Text.Trim();
-                string columna = "";
-
-                if (rb_Codigo.Checked)
+                if (dgv.Rows.Count<1 || txtFiltro.TextLength<1)
                 {
-                    columna = "Codigo";
-                }
-                else if (rb_Marca.Checked)
-                {
-                    columna = "Marca";
-                }
-                else if (rb_Nombre.Checked)
-                {
-                    columna = "Nombre";
-                }
-
-                List<ProductoDTO> productosFiltrados = new List<ProductoDTO>();
-
-                if (!string.IsNullOrEmpty(columna))
-                {
-                    productosFiltrados = ((List<ProductoDTO>)dgv.DataSource)
-                        .Where(p => GetPropertyValue(p, columna)?.ToString()?.ToUpper()?.Trim()?.Contains(filtro.ToUpper().Trim()) == true)
-                        .ToList();
+                    MessageBox.Show("Seleccione un listado y luego coloque un filtro de búsqueda para su producto");
                 }
                 else
                 {
-                    productosFiltrados = ((List<ProductoDTO>)dgv.DataSource);
-                }
+                    string filtro = txtFiltro.Text.Trim();
+                    string columna = "";
 
-                dgv.DataSource = null;
-                dgv.DataSource = productosFiltrados;
+                    if (rb_Codigo.Checked)
+                    {
+                        columna = "Codigo";
+                    }
+                    else if (rb_Marca.Checked)
+                    {
+                        columna = "Marca";
+                    }
+                    else if (rb_Nombre.Checked)
+                    {
+                        columna = "Nombre";
+                    }
+
+                    List<ProductoDTO> productosFiltrados = new List<ProductoDTO>();
+
+                    if (!string.IsNullOrEmpty(columna))
+                    {
+                        productosFiltrados = ((List<ProductoDTO>)dgv.DataSource)
+                            .Where(p => GetPropertyValue(p, columna)?.ToString()?.ToUpper()?.Trim()?.Contains(filtro.ToUpper().Trim()) == true)
+                            .ToList();
+                    }
+                    else
+                    {
+                        productosFiltrados = ((List<ProductoDTO>)dgv.DataSource);
+                    }
+
+                    dgv.DataSource = null;
+                    dgv.DataSource = productosFiltrados;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -177,9 +186,16 @@ namespace Yamy_Desktop
         {
             try
             {
-                ProductoEditarForm form = new ProductoEditarForm((ProductoDTO)dgv.CurrentRow.DataBoundItem);
-                form.ShowDialog();
-                btn_VerTodos.PerformClick();
+                if (dgv.SelectedRows.Count == 1)
+                {
+                    ProductoEditarForm form = new ProductoEditarForm((ProductoDTO)dgv.CurrentRow.DataBoundItem);
+                    form.ShowDialog();
+                    btn_VerTodos.PerformClick();
+                }
+                else
+                {
+                    btn_EditSeleccionado.Enabled = false;
+                }
             }
             catch (Exception)
             {
@@ -197,15 +213,24 @@ namespace Yamy_Desktop
         {
             try
             {
-                using (baselaymarEntities DB = new baselaymarEntities())
+                if (dgv.SelectedRows.Count == 1)
                 {
-                    producto eliminar = DB.producto.Find(((ProductoDTO)dgv.CurrentRow.DataBoundItem).Id);
-                    eliminar.fechaBaja = DateTime.Now;
-                    DB.SaveChanges();
-                    
-                    MessageBox.Show("El producto ha sido eliminado");
-                    btn_VerTodos.PerformClick();
+                    using (baselaymarEntities DB = new baselaymarEntities())
+                    {
+                        producto eliminar = DB.producto.Find(((ProductoDTO)dgv.CurrentRow.DataBoundItem).Id);
+                        eliminar.fechaBaja = DateTime.Now;
+                        DB.SaveChanges();
+
+                        MessageBox.Show("El producto ha sido eliminado");
+                        btn_VerTodos.PerformClick();
+
+                    }
                 }
+                else
+                {
+                    btn_ElimProducto.Enabled = false;
+                }
+
             }
             catch (Exception ex)
             {
@@ -233,16 +258,31 @@ namespace Yamy_Desktop
 
         private void dgv_MouseClick(object sender, MouseEventArgs e)
         {
-            lbl_PrecioProducto.Text = "$ " + dgv.CurrentRow.Cells["Precio"].Value.ToString();
-            btn_EditSeleccionado.Enabled = true;
-            btn_ElimProducto.Enabled = true;
+            if (dgv.Rows.Count > 0)
+            {
+                lbl_PrecioProducto.Text = "$ " + dgv.CurrentRow.Cells["Precio"].Value.ToString();
+                btn_EditSeleccionado.Enabled = true;
+                btn_ElimProducto.Enabled = true;
+            }
+            else
+            {
+                btn_EditSeleccionado.Enabled = false;
+                btn_ElimProducto.Enabled = false;
+            }
+
         }
 
         private void dgv_Leave(object sender, EventArgs e)
         {
             lbl_PrecioProducto.Text = "";
-            btn_EditSeleccionado.Enabled = false;
-            btn_ElimProducto.Enabled = false;
+        }
+
+        private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgv.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(174, 214, 12);
+            }
         }
     }
 }

@@ -43,7 +43,6 @@ namespace Yamy_Desktop
             this.btn_EditSeleccionado = new System.Windows.Forms.Button();
             this.btn_ElimProducto = new System.Windows.Forms.Button();
             this.btn_NuevoProducto = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_Min = new System.Windows.Forms.Button();
@@ -85,6 +84,7 @@ namespace Yamy_Desktop
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(1276, 493);
             this.dgv.TabIndex = 0;
+            this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgv.Leave += new System.EventHandler(this.dgv_Leave);
             this.dgv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseClick);
             // 
@@ -195,17 +195,6 @@ namespace Yamy_Desktop
             this.btn_NuevoProducto.UseVisualStyleBackColor = false;
             this.btn_NuevoProducto.Click += new System.EventHandler(this.btn_NuevoProducto_Click);
             // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 54);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Nueva Venta";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
@@ -281,7 +270,6 @@ namespace Yamy_Desktop
             this.Controls.Add(this.lbl_aviso);
             this.Controls.Add(this.lbl_PrecioProducto);
             this.Controls.Add(this.btn_Min);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_NuevoProducto);
             this.Controls.Add(this.btn_ElimProducto);
             this.Controls.Add(this.btn_EditSeleccionado);
@@ -321,7 +309,6 @@ namespace Yamy_Desktop
         private System.Windows.Forms.Button btn_EditSeleccionado;
         private System.Windows.Forms.Button btn_ElimProducto;
         private System.Windows.Forms.Button btn_NuevoProducto;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btn_Min;
         private System.Windows.Forms.Label lbl_PrecioProducto;

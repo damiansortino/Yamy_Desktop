@@ -59,8 +59,8 @@ namespace Yamy_Desktop.Views
                 text_Talle.Text = "";
                 text_Color.Text = "";
                 text_Marca.Text = "";
-                text_PrecioUnitario.Text = "";
-                text_Rentabilidad.Text = "100";
+                text_PrecioUnitario.Text = "0";
+                text_Rentabilidad.Text = DB.personaJuridica.Find((int)combo_Proveedores.SelectedValue).porcentajeRentabilidad.ToString();
                 lbl_PrecioFinal.Text = "$ 0";
             }
 
@@ -222,6 +222,25 @@ namespace Yamy_Desktop.Views
             catch (Exception ex)
             {
                 MessageBox.Show("Error creando producto \n" + ex.Message);
+            }
+        }
+
+        private void combo_Proveedores_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (baselaymarEntities DB = new baselaymarEntities())
+                {
+                    personaJuridica proveedor = (personaJuridica)combo_Proveedores.SelectedItem;
+
+                    text_Rentabilidad.Text = proveedor.porcentajeRentabilidad.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
