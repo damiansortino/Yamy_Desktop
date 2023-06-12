@@ -57,10 +57,10 @@ namespace Yamy_Desktop
                     }
                     else if (filtro == "ultimos")
                     {
-                        DateTime menoscien = DateTime.Now.Date.AddDays(-60);
+                        DateTime menossesenta = DateTime.Now.Date.AddDays(-60);
 
                         var query = from a in DB.producto
-                                    where a.fechaBaja == null && a.fechaAlta >= menoscien
+                                    where a.fechaBaja == null && a.fechaAlta >= menossesenta
                                     select new ProductoDTO
                                     {
                                         Id = a.ProductoId,
@@ -202,6 +202,7 @@ namespace Yamy_Desktop
                     producto eliminar = DB.producto.Find(((ProductoDTO)dgv.CurrentRow.DataBoundItem).Id);
                     eliminar.fechaBaja = DateTime.Now;
                     DB.SaveChanges();
+                    
                     MessageBox.Show("El producto ha sido eliminado");
                     btn_VerTodos.PerformClick();
                 }
@@ -228,6 +229,20 @@ namespace Yamy_Desktop
         private void btn_Min_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void dgv_MouseClick(object sender, MouseEventArgs e)
+        {
+            lbl_PrecioProducto.Text = "$ " + dgv.CurrentRow.Cells["Precio"].Value.ToString();
+            btn_EditSeleccionado.Enabled = true;
+            btn_ElimProducto.Enabled = true;
+        }
+
+        private void dgv_Leave(object sender, EventArgs e)
+        {
+            lbl_PrecioProducto.Text = "";
+            btn_EditSeleccionado.Enabled = false;
+            btn_ElimProducto.Enabled = false;
         }
     }
 }

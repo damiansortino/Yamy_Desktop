@@ -8,6 +8,7 @@ namespace Yamy_Desktop.Views
     public partial class ProductoEditarForm : Form
     {
         int idproducto;
+        int idstock;
         public ProductoEditarForm(ProductoDTO dataBoundItem)
         {
             InitializeComponent();
@@ -15,7 +16,11 @@ namespace Yamy_Desktop.Views
             using (baselaymarEntities DB = new baselaymarEntities())
             {
                 idproducto = dataBoundItem.Id;
+                idstock = DB.stock.ToList().Find(x => x.ProductoId == idproducto).StockId;
+
                 producto product = DB.producto.Find(dataBoundItem.Id);
+
+                stock stockproducto = DB.stock.ToList().Find(x => x.ProductoId == idproducto);
 
                 combo_Proveedores.DataSource = DB.personaJuridica.ToList().FindAll(x => x.Discriminator == "Proveedor" && x.fechaBaja == null);
                 combo_Proveedores.DisplayMember = "razonSocial";
@@ -91,7 +96,14 @@ namespace Yamy_Desktop.Views
                 if (e.KeyChar == (char)Keys.Enter)
                 {
                     btn_Refresh.PerformClick();
+                    e.Handled = true;
                 }
+
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
 
             }
             catch (Exception)
@@ -108,6 +120,12 @@ namespace Yamy_Desktop.Views
                 if (e.KeyChar == (char)Keys.Enter)
                 {
                     btn_Refresh.PerformClick();
+                    e.Handled = true;
+                }
+
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
                 }
             }
             catch (Exception)
@@ -127,26 +145,52 @@ namespace Yamy_Desktop.Views
                     using (baselaymarEntities DB = new baselaymarEntities())
                     {
                         producto editar = new producto();
-                        editar.nombre = text_Nombre.Text;
-                        editar.descripcion = text_Descripcion.Text;
-                        editar.talle = text_Talle.Text;
-                        editar.color = text_Color.Text;
-                        editar.marca = text_Marca.Text;
+                        editar.nombre = text_Nombre.Text.ToUpper();
+                        editar.descripcion = text_Descripcion.Text.ToUpper();
+                        editar.talle = text_Talle.Text.ToUpper();
+                        editar.color = text_Color.Text.ToUpper();
+                        editar.marca = text_Marca.Text.ToUpper();
                         editar.ProveedorId = (int)combo_Proveedores.SelectedValue;
                         editar.precioUnitario = double.Parse(text_PrecioUnitario.Text);
                         editar.porcentajeRentabilidad = double.Parse(text_Rentabilidad.Text);
                         editar.fechaAlta = DateTime.Now;
+                        DB.producto.Add(editar);
+                        DB.SaveChanges();
 
-                        int proximo = DB.Database.SqlQuery<int>("SELECT IDENT_CURRENT('producto') + IDENT_INCR('producto')").FirstOrDefault();
-                        editar.codigo = proximo.ToString();
-
+                        editar.codigo = editar.ProductoId.ToString();
                         do
                         {
                             editar.codigo = "0" + editar.codigo;
-                        } while (editar.codigo.Length<8);
+                        } while (editar.codigo.Length < 8);
 
-                        DB.producto.Add(editar);
+                        DB.Entry(editar).State = System.Data.Entity.EntityState.Modified;
+
                         DB.SaveChanges();
+
+                        foreach (sucursal item in DB.sucursal.ToList().FindAll(x => x.fechaBaja == null))
+                        {
+                            //crer el stock
+                            stock nuevo = new stock();
+                            nuevo.ProductoId = editar.ProductoId;
+                            nuevo.cantidad = 0;
+                            nuevo.SucursalId = item.SucursalId;
+
+                            DB.stock.Add(nuevo);
+                            DB.SaveChanges();
+
+                            //crear el movimiento de stock de carga inicial
+
+                            movimientoStock movstock = new movimientoStock();
+                            movstock.cantidad = 0;
+                            movstock.entra = true;
+                            movstock.sale = false;
+                            movstock.fechaAlta = DateTime.Now;
+                            movstock.StockId = nuevo.StockId;
+                            movstock.TipoMovimientoStockId = 1;
+                            DB.movimientoStock.Add(movstock);
+                            DB.SaveChanges();
+
+                        }
 
                         MessageBox.Show("Producto Agregado correctamente");
                         this.Close();
@@ -158,11 +202,11 @@ namespace Yamy_Desktop.Views
                     using (baselaymarEntities DB = new baselaymarEntities())
                     {
                         producto editar = DB.producto.Find(idproducto);
-                        editar.nombre = text_Nombre.Text;
-                        editar.descripcion = text_Descripcion.Text;
-                        editar.talle = text_Talle.Text;
-                        editar.color = text_Color.Text;
-                        editar.marca = text_Marca.Text;
+                        editar.nombre = text_Nombre.Text.ToUpper();
+                        editar.descripcion = text_Descripcion.Text.ToUpper();
+                        editar.talle = text_Talle.Text.ToUpper();
+                        editar.color = text_Color.Text.ToUpper();
+                        editar.marca = text_Marca.Text.ToUpper();
                         editar.ProveedorId = (int)combo_Proveedores.SelectedValue;
                         editar.precioUnitario = double.Parse(text_PrecioUnitario.Text);
                         editar.porcentajeRentabilidad = double.Parse(text_Rentabilidad.Text);
@@ -175,10 +219,9 @@ namespace Yamy_Desktop.Views
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Error creando producto \n" + ex.Message);
             }
         }
     }

@@ -48,6 +48,8 @@ namespace Yamy_Desktop
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_Min = new System.Windows.Forms.Button();
             this.btn_okSearch = new System.Windows.Forms.Button();
+            this.lbl_PrecioProducto = new System.Windows.Forms.Label();
+            this.lbl_aviso = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +85,8 @@ namespace Yamy_Desktop
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(1276, 493);
             this.dgv.TabIndex = 0;
+            this.dgv.Leave += new System.EventHandler(this.dgv_Leave);
+            this.dgv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseClick);
             // 
             // btn_VerTodos
             // 
@@ -156,8 +160,9 @@ namespace Yamy_Desktop
             // btn_EditSeleccionado
             // 
             this.btn_EditSeleccionado.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_EditSeleccionado.Enabled = false;
             this.btn_EditSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_EditSeleccionado.Location = new System.Drawing.Point(884, 24);
+            this.btn_EditSeleccionado.Location = new System.Drawing.Point(748, 29);
             this.btn_EditSeleccionado.Name = "btn_EditSeleccionado";
             this.btn_EditSeleccionado.Size = new System.Drawing.Size(173, 44);
             this.btn_EditSeleccionado.TabIndex = 9;
@@ -168,8 +173,9 @@ namespace Yamy_Desktop
             // btn_ElimProducto
             // 
             this.btn_ElimProducto.BackColor = System.Drawing.Color.Salmon;
+            this.btn_ElimProducto.Enabled = false;
             this.btn_ElimProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ElimProducto.Location = new System.Drawing.Point(884, 74);
+            this.btn_ElimProducto.Location = new System.Drawing.Point(748, 79);
             this.btn_ElimProducto.Name = "btn_ElimProducto";
             this.btn_ElimProducto.Size = new System.Drawing.Size(173, 44);
             this.btn_ElimProducto.TabIndex = 10;
@@ -181,7 +187,7 @@ namespace Yamy_Desktop
             // 
             this.btn_NuevoProducto.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_NuevoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NuevoProducto.Location = new System.Drawing.Point(884, 124);
+            this.btn_NuevoProducto.Location = new System.Drawing.Point(748, 129);
             this.btn_NuevoProducto.Name = "btn_NuevoProducto";
             this.btn_NuevoProducto.Size = new System.Drawing.Size(173, 44);
             this.btn_NuevoProducto.TabIndex = 11;
@@ -244,6 +250,27 @@ namespace Yamy_Desktop
             this.btn_okSearch.UseVisualStyleBackColor = true;
             this.btn_okSearch.Click += new System.EventHandler(this.btn_okSearch_Click);
             // 
+            // lbl_PrecioProducto
+            // 
+            this.lbl_PrecioProducto.AutoSize = true;
+            this.lbl_PrecioProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PrecioProducto.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lbl_PrecioProducto.Location = new System.Drawing.Point(968, 102);
+            this.lbl_PrecioProducto.Name = "lbl_PrecioProducto";
+            this.lbl_PrecioProducto.Size = new System.Drawing.Size(66, 55);
+            this.lbl_PrecioProducto.TabIndex = 14;
+            this.lbl_PrecioProducto.Text = "$ ";
+            // 
+            // lbl_aviso
+            // 
+            this.lbl_aviso.AutoSize = true;
+            this.lbl_aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_aviso.Location = new System.Drawing.Point(338, 53);
+            this.lbl_aviso.Name = "lbl_aviso";
+            this.lbl_aviso.Size = new System.Drawing.Size(367, 20);
+            this.lbl_aviso.TabIndex = 15;
+            this.lbl_aviso.Text = "Presione \"Ver Todos\" antes de buscar un producto";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +278,8 @@ namespace Yamy_Desktop
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.CancelButton = this.btn_Cerrar;
             this.ClientSize = new System.Drawing.Size(1282, 691);
+            this.Controls.Add(this.lbl_aviso);
+            this.Controls.Add(this.lbl_PrecioProducto);
             this.Controls.Add(this.btn_Min);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_NuevoProducto);
@@ -295,6 +324,8 @@ namespace Yamy_Desktop
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btn_Min;
+        private System.Windows.Forms.Label lbl_PrecioProducto;
+        private System.Windows.Forms.Label lbl_aviso;
     }
 }
 

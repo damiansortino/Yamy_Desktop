@@ -194,7 +194,7 @@ namespace Yamy_Desktop.Views
             this.text_PrecioUnitario.Location = new System.Drawing.Point(574, 172);
             this.text_PrecioUnitario.Name = "text_PrecioUnitario";
             this.text_PrecioUnitario.Size = new System.Drawing.Size(145, 20);
-            this.text_PrecioUnitario.TabIndex = 19;
+            this.text_PrecioUnitario.TabIndex = 17;
             this.text_PrecioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_PrecioUnitario_KeyPress);
             // 
             // text_Rentabilidad
@@ -202,7 +202,7 @@ namespace Yamy_Desktop.Views
             this.text_Rentabilidad.Location = new System.Drawing.Point(574, 211);
             this.text_Rentabilidad.Name = "text_Rentabilidad";
             this.text_Rentabilidad.Size = new System.Drawing.Size(145, 20);
-            this.text_Rentabilidad.TabIndex = 20;
+            this.text_Rentabilidad.TabIndex = 18;
             this.text_Rentabilidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_Rentabilidad_KeyPress);
             // 
             // label11
@@ -217,9 +217,10 @@ namespace Yamy_Desktop.Views
             // lbl_PrecioFinal
             // 
             this.lbl_PrecioFinal.AutoSize = true;
-            this.lbl_PrecioFinal.Location = new System.Drawing.Point(571, 291);
+            this.lbl_PrecioFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PrecioFinal.Location = new System.Drawing.Point(570, 283);
             this.lbl_PrecioFinal.Name = "lbl_PrecioFinal";
-            this.lbl_PrecioFinal.Size = new System.Drawing.Size(62, 13);
+            this.lbl_PrecioFinal.Size = new System.Drawing.Size(122, 24);
             this.lbl_PrecioFinal.TabIndex = 22;
             this.lbl_PrecioFinal.Text = "Precio Final";
             // 
@@ -235,9 +236,10 @@ namespace Yamy_Desktop.Views
             // lbl_Codigo
             // 
             this.lbl_Codigo.AutoSize = true;
-            this.lbl_Codigo.Location = new System.Drawing.Point(514, 35);
+            this.lbl_Codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Codigo.Location = new System.Drawing.Point(547, 27);
             this.lbl_Codigo.Name = "lbl_Codigo";
-            this.lbl_Codigo.Size = new System.Drawing.Size(40, 13);
+            this.lbl_Codigo.Size = new System.Drawing.Size(77, 24);
             this.lbl_Codigo.TabIndex = 25;
             this.lbl_Codigo.Text = "Codigo";
             // 
@@ -250,7 +252,7 @@ namespace Yamy_Desktop.Views
             this.btn_Cancel.Location = new System.Drawing.Point(695, 372);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(55, 51);
-            this.btn_Cancel.TabIndex = 17;
+            this.btn_Cancel.TabIndex = 20;
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
@@ -272,7 +274,7 @@ namespace Yamy_Desktop.Views
             this.btn_ok.Location = new System.Drawing.Point(577, 372);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(56, 51);
-            this.btn_ok.TabIndex = 18;
+            this.btn_ok.TabIndex = 19;
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
