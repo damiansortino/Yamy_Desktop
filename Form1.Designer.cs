@@ -49,6 +49,7 @@ namespace Yamy_Desktop
             this.btn_okSearch = new System.Windows.Forms.Button();
             this.lbl_PrecioProducto = new System.Windows.Forms.Label();
             this.lbl_aviso = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +58,9 @@ namespace Yamy_Desktop
             // 
             this.groupBox1.Controls.Add(this.dgv);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 179);
+            this.groupBox1.Location = new System.Drawing.Point(0, 211);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1282, 512);
+            this.groupBox1.Size = new System.Drawing.Size(1282, 480);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos";
@@ -82,7 +83,7 @@ namespace Yamy_Desktop
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1276, 493);
+            this.dgv.Size = new System.Drawing.Size(1276, 461);
             this.dgv.TabIndex = 0;
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgv.Leave += new System.EventHandler(this.dgv_Leave);
@@ -162,7 +163,7 @@ namespace Yamy_Desktop
             this.btn_EditSeleccionado.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_EditSeleccionado.Enabled = false;
             this.btn_EditSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_EditSeleccionado.Location = new System.Drawing.Point(748, 29);
+            this.btn_EditSeleccionado.Location = new System.Drawing.Point(750, 2);
             this.btn_EditSeleccionado.Name = "btn_EditSeleccionado";
             this.btn_EditSeleccionado.Size = new System.Drawing.Size(173, 44);
             this.btn_EditSeleccionado.TabIndex = 9;
@@ -175,7 +176,7 @@ namespace Yamy_Desktop
             this.btn_ElimProducto.BackColor = System.Drawing.Color.Salmon;
             this.btn_ElimProducto.Enabled = false;
             this.btn_ElimProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ElimProducto.Location = new System.Drawing.Point(748, 79);
+            this.btn_ElimProducto.Location = new System.Drawing.Point(750, 52);
             this.btn_ElimProducto.Name = "btn_ElimProducto";
             this.btn_ElimProducto.Size = new System.Drawing.Size(173, 44);
             this.btn_ElimProducto.TabIndex = 10;
@@ -187,7 +188,7 @@ namespace Yamy_Desktop
             // 
             this.btn_NuevoProducto.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_NuevoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NuevoProducto.Location = new System.Drawing.Point(748, 129);
+            this.btn_NuevoProducto.Location = new System.Drawing.Point(750, 102);
             this.btn_NuevoProducto.Name = "btn_NuevoProducto";
             this.btn_NuevoProducto.Size = new System.Drawing.Size(173, 44);
             this.btn_NuevoProducto.TabIndex = 11;
@@ -260,6 +261,17 @@ namespace Yamy_Desktop
             this.lbl_aviso.TabIndex = 15;
             this.lbl_aviso.Text = "Presione \"Ver Todos\" antes de buscar un producto";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(750, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 44);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Ajustar Stock";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +279,7 @@ namespace Yamy_Desktop
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.CancelButton = this.btn_Cerrar;
             this.ClientSize = new System.Drawing.Size(1282, 691);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_aviso);
             this.Controls.Add(this.lbl_PrecioProducto);
             this.Controls.Add(this.btn_Min);
@@ -313,6 +326,7 @@ namespace Yamy_Desktop
         private System.Windows.Forms.Button btn_Min;
         private System.Windows.Forms.Label lbl_PrecioProducto;
         private System.Windows.Forms.Label lbl_aviso;
+        private System.Windows.Forms.Button button1;
     }
 }
 

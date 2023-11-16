@@ -166,6 +166,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ProductoAjustarStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductoAjustarStockForm.Designer.cs">
+      <DependentUpon>ProductoAjustarStockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductoEditarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ProductoAjustarStockForm.resx">
+      <DependentUpon>ProductoAjustarStockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductoEditarForm.resx">
       <DependentUpon>ProductoEditarForm.cs</DependentUpon>
     </EmbeddedResource>
